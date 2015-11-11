@@ -1,0 +1,24 @@
+<div class="page-bundle-view">
+<center>
+  <div class="title margin-top-15">Who's in?</div>
+  <div class="margin-top-10">
+    <div class="margin-top-15 contribution-item">
+      <div class="pull-left margin-right-10 contribution-photo">
+          <ui-bundle-img ng-src="bundle.User.photo" width="1" height="1"></ui-bundle-img>
+      </div>
+      <div class="pull-left contribution-name">{{bundle.User.firstname}} {{bundle.User.surname}}</div>
+      <div class="clear"></div>
+    </div>
+  	<div ng-repeat="contribution in bundle.Contributions" class="margin-top-15 contribution-item" ng-if="contribution.Transaction.status === 0 || contribution.Transaction.status === 1">
+  		<div class="pull-left margin-right-10 contribution-photo">
+        <ui-bundle-img ng-src="contribution.User.photo" width="1" height="1"></ui-bundle-img>
+  		</div>
+  		<div class="pull-left contribution-name">{{contribution.User.firstname}} {{contribution.User.surname}}</div>
+  		<a class="pull-right padding-left-15 contribution-link" ng-click="onRemoveContributor(contribution)" ng-if="bundle.UserId == currentUser.id">Remove</a>
+  		<div class="pull-right contribution-amount">£{{contribution.Transaction.amount }}</div>
+      <div class="clear"></div>
+  	</div>
+  </div>
+  <div class="margin-top-30"></div>
+</center>
+</div>

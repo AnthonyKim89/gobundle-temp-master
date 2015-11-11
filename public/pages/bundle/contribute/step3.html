@@ -1,0 +1,17 @@
+<div class="font-size-25 font-second cr-text margin-top-15">Add your card</div>
+<div class="margin-top-25 credit-card" ng-class="creditcard_icon">
+</div>
+<input type="text" class="fade-text margin-top-15" ui-bundle-input-auto-fill ng-initial-focus ng-model="card.cardNo" placeholder="Card number" mask="9999 9999 9999 9999" ng-blur="changePlaceholder($event, 'Card number')" ng-focus="changePlaceholder($event, 'xxxx xxxx xxxx xxxx')" ng-return="onStepNext()" />
+
+<input type="text" class="fade-text margin-top-15" ui-bundle-input-auto-fill ng-model="card.expiryDate" placeholder="Expiry date" mask="19/99" ng-blur="changePlaceholder($event, 'Expiry date')" ng-focus="changePlaceholder($event, 'MM/YY')" ng-return="onStepNext()" />
+
+<div class="bf-form-error-container field-cvv margin-top-15">
+	<input type="text" class="fade-text" ui-bundle-input-auto-fill ng-model="card.cvv" placeholder="CVV" mask="9999" ng-blur="changePlaceholder($event, 'CVV')" ng-focus="changePlaceholder($event, 'xxxx')" ng-return="onStepNext()" />
+	<a ui-sref="bundle/infocvc({backPage:backPage})" class="icon margin-top-12">?</a>
+</div>
+<div class="margin-top-30">
+	<div class="margin-bottom-10" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<button class="btn btn-white margin-top-15" ng-click="onStepNext()">Add card</a>
+</div>

@@ -1,0 +1,8 @@
+<div class="title margin-top-15 margin-bottom-15" ng-if="bundle.bundleType == 1">I need a minimum of <strong>{{bundle.minPeopleCount}}</strong> people</div>
+<ui-bundle-slider options="{}" class="" min="{{BUNDLE_PEOPLE_COUNT.MIN}}" max="{{bundle.maxPeopleCount}}" ng-model="bundle.minPeopleCount" ng-if="bundle.bundleType == 1"></ui-bundle-slider>
+<div class="title margin-top-25 margin-bottom-15" ng-if="bundle.bundleType == 1">and a maximum of <strong>{{bundle.maxPeopleCount}}</strong> people</div>
+<ui-bundle-slider options="{}" class="" min="{{bundle.minPeopleCount}}" max="{{BUNDLE_PEOPLE_COUNT.MAX}}" ng-model="bundle.maxPeopleCount" ng-if="bundle.bundleType == 1"></ui-bundle-slider>
+
+
+<div class="title margin-top-15 margin-bottom-15" ng-if="bundle.bundleType == 2">{{bundle.target | currency: '£':0}} will be split between <strong>{{bundle.minPeopleCount}}</strong> people</div>
+<ui-bundle-slider options="{}" class="" min="{{BUNDLE_PEOPLE_COUNT.MIN}}" max="{{BUNDLE_PEOPLE_COUNT.MAX}}" ng-model="bundle.minPeopleCount" ng-if="bundle.bundleType == 2"></ui-bundle-slider>

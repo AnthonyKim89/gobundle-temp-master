@@ -1,0 +1,241 @@
+@crTheme: #fbbf00;
+@crThemeMenu: #3a3e43;
+@crText: #fff;
+@crFadeText: #fde599;
+@crGrayText: #b0b2b4;
+@crDarkText: #4e535a;
+@fZoom: 1;
+@szMainFont: "Verdana";
+@szSecondFont: 'Verdana';
+@pageWidth: 320px * @fZoom;
+
+body {
+	background:@crTheme;
+	font-family:@szMainFont;
+	font-size:16px * @fZoom;
+}
+ul {
+	padding:0px;
+	margin:0px;
+}
+li {
+	padding:0px;
+	margin:0px;
+	list-style: none;
+}
+
+button {
+  	background-color: transparent;
+  	border: 0px;
+  	padding:0px;
+  	margin:0px;
+}
+
+.btn,a {
+	cursor:pointer;
+	outline: none;
+	text-decoration:none;
+	display:inline-block;
+	&:focus,
+	&:active,
+	&:hover,
+	&:visited {
+		outline: none;
+	}
+}
+
+.btn-white {
+	width:140px * @fZoom;
+	height:40px * @fZoom;
+	line-height:40px * @fZoom;
+	background-color:@crText !important;
+	color: @crTheme !important;
+	border-radius:0px;
+  	border: 1px solid @crText;
+  	padding:0px;
+  	margin:0px;
+  	font-size:14px * @fZoom;
+
+	&:hover {
+		color:@crTheme !important;
+	}
+
+	&.gray {
+		color:@crThemeMenu !important;
+		&:hover {
+			color:@crThemeMenu !important;
+		}
+	}
+}
+.btn-white-reverse {
+	width:206px * @fZoom;
+	height:40px * @fZoom;
+	line-height:40px * @fZoom;
+	background-color:@crTheme !important;
+	color: @crText !important;
+	border-radius:0px;
+  	border: 1px solid @crText;
+  	padding:0px;
+  	margin:0px;
+  	font-size:14px * @fZoom;
+
+	&:hover {
+		color:@crFadeText !important;
+	}
+}
+.btn-gray {
+	width:140px * @fZoom;
+	height:40px * @fZoom;
+	line-height:40px * @fZoom;
+	background-color:@crText !important;
+	color: @crGrayText !important;
+	border-radius:0px;
+  	border: 1px solid @crText;
+  	padding:0px;
+  	margin:0px;
+  	font-size:14px * @fZoom;
+
+	&:hover {
+		color:@crGrayText !important;
+	}
+}
+.btn-gray-reverse {
+	width:140px * @fZoom;
+	height:40px * @fZoom;
+	line-height:40px * @fZoom;
+	background-color:@crThemeMenu !important;
+	color: @crText !important;
+	border-radius:0px;
+  	border: 1px solid @crText;
+  	padding:0px;
+  	margin:0px;
+  	font-size:14px * @fZoom;
+
+	&:hover {
+		color:@crText !important;
+	}
+}
+.page-container {
+	width:100%;
+	height:100%;
+}
+
+.icon-bundle {
+	width:80%;
+
+	img {
+		width:100%;
+	}
+}
+.title {
+	font-size:36px * @fZoom;
+	color:@crText;
+	font-family:@szSecondFont;
+}
+
+.description {
+	color:@crText;
+	font-family:@szSecondFont;
+	line-height:25px * @fZoom;
+}
+
+.page-header {
+	height:56px * @fZoom;
+	width:100%;
+	margin:0px;
+	border:0px;
+	padding:0px;
+
+
+	.logo {
+		width:95px * @fZoom;
+		height:33px * @fZoom;
+		margin-top:14px * @fZoom;
+		display:block;
+
+		img {
+			width:100%;
+			height:100%;
+		}
+	}
+}
+.page-content {
+	width:@pageWidth;
+	padding-left:10px * @fZoom;
+	padding-right:10px * @fZoom;
+	font-size:16px * @fZoom;
+}
+.page-footer {
+	color:@crFadeText;
+	font-family:@szMainFont;
+	font-size:12px * @fZoom;
+	position:fixed;
+	top:100%;
+	margin-top:-30px * @fZoom;
+	text-align:center;
+	width:100%;
+}
+.cr-text {
+	color:@crText;
+}
+.cr-fade-text {
+	color:@crFadeText;
+}
+.cr-gray-text {
+	color:@crGrayText;
+}
+
+.margin-loop(@index) when(@index =< 200) {
+  .margin-top-@{index} {
+    margin-top: unit(@index * @fZoom, px) !important;
+  }
+  .margin-bottom-@{index} {
+    margin-bottom: unit(@index * @fZoom, px) !important;
+  }
+  .margin-right-@{index} {
+    margin-right: unit(@index * @fZoom, px) !important;
+  }
+  .margin-left-@{index} {
+    margin-left: unit(@index * @fZoom, px) !important;
+  }
+  .margin-loop(@index + 1);
+}
+.margin-loop(0);
+
+.padding-loop(@index) when(@index =< 200) {
+  .padding-top-@{index} {
+    padding-top: unit(@index * @fZoom, px) !important;
+  }
+  .padding-bottom-@{index} {
+    padding-bottom: unit(@index * @fZoom, px) !important;
+  }
+  .padding-right-@{index} {
+    padding-right: unit(@index * @fZoom, px) !important;
+  }
+  .padding-left-@{index} {
+    padding-left: unit(@index * @fZoom, px) !important;
+  }
+  .padding-loop(@index + 1);
+}
+.padding-loop(0);
+
+.fontsize-loop(@index) when(@index =< 64) {
+  .font-size-@{index} {
+    font-size: unit(@index * @fZoom, px) !important;
+  }
+  .fontsize-loop(@index + 1);
+}
+.fontsize-loop(8);
+
+.font-main {
+	font-family:@szMainFont !important;
+}
+.font-second {
+	font-family:@szSecondFont !important;
+}
+.clear {
+	clear:both;
+}
+.inline {
+	display:inline-block;
+}

@@ -1,0 +1,37 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(content='width=device-width, initial-scale=1', name='viewport')
+		meta(content='', name='description')
+		meta(content='', name='author')
+		style.
+			@import url(#{config.hostname}/css/font.css);
+
+	body
+		.page-container
+			.page-header
+				center
+					a(href="#{config.hostname}", class="logo")
+						img(src="#{config.hostname}/img/logo.png")
+			
+			center
+				.page-content
+					.icon-bundle.margin-top-30
+						img(src="#{config.hostname}/img/email/welcome.png")
+					.title.margin-top-20.
+						Welcome to #{config.app.name}!
+						
+					.description.margin-top-20(style='margin-top:20px;color:#ffffff')
+						p.
+							You have successfully joined #{config.app.name}.
+						p.
+							Please use following button link below to login.
+					.margin-top-30.margin-bottom-20
+						a.btn.btn-white-reverse.margin-right-10(href="#{config.hostname}", target="_blank").
+							LOGIN
+			
+			.page-footer
+				center.
+					&copy; Bundle 2015

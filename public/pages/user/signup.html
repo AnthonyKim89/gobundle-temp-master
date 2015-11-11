@@ -1,0 +1,44 @@
+<div class="page-form" ng-show="!isSigningup">
+<center>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="text" id="firstname" placeholder="Firstname" ng-model="user.firstname" ng-return="signup()">
+	</div>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="text" id="surname" placeholder="Surname" ng-model="user.surname" ng-return="signup()">
+	</div>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="text" id="email" placeholder="Email" ng-model="user.email" ng-return="signup()">
+	</div>
+	<div class="row">
+		<input class="fade-text" type="text" id="dob" placeholder="Date of birth" mask="39/19/9999" ng-model="user.dob" ng-blur="changePlaceholder($event, 'Date of birth')" ng-focus="changePlaceholder($event, 'DD/MM/YYYY')" ng-return="signup()">
+	</div>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="password" id="password" placeholder="Password" ng-model="user.password" ng-return="signup()">
+	</div>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="password" id="confirm_password" placeholder="Confirm password" ng-model="confirm_password" ng-return="signup()">
+	</div>
+	<div class="row has-margin" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<div class="row has-margin">
+		<button class="btn btn-white" ng-click="signup()">Sign up</button>
+	</div>
+	<div class="row has-margin">
+		or
+	</div>
+	<div class="row has-margin">
+		<button class="btn btn-facebook" ng-click="loginWithFacebook()">Sign up with Facebook</button>
+	</div>
+	<div class="row has-margin">
+		<a ui-sref="login">Existing user? Log in here</a>
+	</div>
+</center>
+</div>
+<div class="page-form" ng-show="isSigningup">
+<center>
+	<div class="margin-top-150 font-size-18 font-main">
+		Please wait while we create your account...
+	</div>
+</center>
+</div>

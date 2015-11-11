@@ -1,0 +1,17 @@
+<div class="page-account">
+<center>
+	<div class="title">Edit name</div>
+	<div class="row margin-top-30">
+		<input ui-bundle-input-auto-fill class="gray-text" type="text" placeholder="First name" ng-model="currentUser.firstname" ng-return="onSave()" />
+	</div>
+	<div class="row margin-top-20">
+		<input ui-bundle-input-auto-fill class="gray-text" type="text" placeholder="Surname" ng-model="currentUser.surname"ng-return="onSave()" />
+	</div>
+	<div class="row margin-top-30" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<div class="row margin-top-30">
+		<button class="btn btn-gray" ng-click="onSave()">Save</button>
+	</div>
+</center>
+</div>

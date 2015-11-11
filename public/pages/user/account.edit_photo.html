@@ -1,0 +1,16 @@
+<div class="page-account">
+<center>
+	<div class="row">
+		<button class="btn btn-white" photo-uploader="onChangePhoto" before-upload="onBeforeUploadPhoto">Choose your own photo</button>
+	</div>
+	<div class="row margin-top-30">
+		or pick an avatar
+	</div>
+	<div class="name row margin-top-20">
+		<span class="avatar" ng-repeat="avatar in DEFAULT_AVATARS" ng-click="onChangePhoto(avatar)">
+			<img ng-src="{{avatar}}" />
+		</span>
+	</div>
+	<div class="margin-top-30"></div>
+</center>
+</div>

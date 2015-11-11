@@ -1,0 +1,12 @@
+<div class="font-size-25 font-second cr-text margin-top-15">You are joining {{bundle.bundleName}}<br />contributing £{{contribution.amount}}</div>
+<div class="margin-top-25" ng-if="cards.length > 0">
+	<div class="margin-top-5 cr-text">Select a card</div>
+	<div class="margin-top-15 cr-text" ng-repeat="card in cards">
+		<div class="pull-left margin-top-13 cr-text credit-card {{card.cardType}}"></div>
+		<div class="pull-left margin-top-10 font-size-22 font-second cr-text margin-left-15">*** {{card.last4}}</div>
+		<div class="pull-left margin-top-10 font-size-22 font-second cr-text margin-left-15">{{card.expiryDate}}</div>
+		<div class="pull-right"><button class="btn btn-next" ng-click="onSelectCard(card)"></button></div>
+		<div class="clear"></div>
+	</div>
+</div>
+<button class="btn margin-top-35" ng-click="onAddNewCard()" ng-class="{'btn-white-reverse': cards.length == 0, 'btn-white': cards.length > 0}">Add card</button>

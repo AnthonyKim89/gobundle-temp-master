@@ -1,0 +1,28 @@
+<div class="page-form">
+<center>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="text" id="email" placeholder="Email" ng-model="email" ng-return="login()">
+	</div>
+	<div class="row">
+		<input ui-bundle-input-auto-fill class="fade-text" type="password" id="password" placeholder="Password" ng-model="password" ng-return="login()">
+	</div>
+	<div class="row has-margin" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<div class="row has-margin">
+		<button class="btn btn-white" ng-click="login()">Log in</button>
+	</div>
+	<div class="row has-margin">
+		or
+	</div>
+	<div class="row has-margin">
+		<button class="btn btn-facebook" ng-click="loginWithFacebook()">Log in with Facebook</button>
+	</div>
+	<div class="row has-margin">
+		<a ui-sref="forget_password">Forgot your password?</a>
+	</div>
+	<div class="row has-margin">
+		<a ui-sref="signup">Sign up</a>
+	</div>
+</center>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-account">
+<center>
+	<div class="title">Edit email</div>
+	<div class="row margin-top-30">
+		<input ui-bundle-input-auto-fill class="gray-text" type="email" placeholder="Email" ng-model="currentUser.email" ng-return="onSave()" />
+	</div>
+	<div class="row margin-top-30" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<div class="row margin-top-30">
+		<button class="btn btn-gray" ng-click="onSave()" ng-disabled="!canSave()">Save</button>
+	</div>
+</center>
+</div>

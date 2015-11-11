@@ -1,0 +1,18 @@
+<div class="page-aboutus">
+<center>
+	<div class="slider">
+		<img ng-repeat="image in images" ng-src="{{image}}" ng-class="{
+			active: $index === curImageIndex,
+			inactive: $index !== curImageIndex
+		}" />
+	</div>
+	<div class="title">You can bundle anything, from a weekend away to a birthday gift, to a night out — basically anything you can do with your friends.</div>
+	<div class="margin-top-15">
+		Bundle is a place for you to make something great happen with your friends or family and, more importantly, take the hassle out of getting an answer and collecting their money.<br /><br />
+		Whether you're organising a weekend away with friends, a stag (or hen) party, a birthday gift, a leaving present for a colleague, or even pitching a holiday idea to mates — Bundle makes the whole thing simple.<br /><br />
+		Give it a try, and bundle something today:
+		<br /><br />
+		<a ui-sref="bundle/wizard" class="btn btn-white margin-bottom-30">Create new bundle</a>
+	</div>
+</center>
+</div>

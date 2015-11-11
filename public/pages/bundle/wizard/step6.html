@@ -1,0 +1,10 @@
+<div class="title margin-top-15 margin-bottom-15 font-second">I want my bundle to last for <br /><span class="font-main">{{bundle.duration}}</span> days</div>
+<ui-bundle-slider options="{}" min="{{BUNDLE_DURATION.MIN}}" max="{{BUNDLE_DURATION.MAX}}" ng-model="bundle.duration"></ui-bundle-slider>
+
+<div class="cr-text margin-top-30 font-second font-size-18">
+	bundle will finish on<br />
+	<span class="font-main">{{ null | date_add:bundle.duration | date:'EEEE d MMMM yyyy' }}</span>
+</div>
+<div class="cr-text margin-top-35 font-second font-size-16">
+	Statistically, bundles which are 7 days or less have an increased chance of succeeding.
+</div>

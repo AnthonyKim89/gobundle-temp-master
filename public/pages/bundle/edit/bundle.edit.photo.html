@@ -1,0 +1,24 @@
+<div class="page-bundle-edit">
+<center>
+	<div ng-show="current_photo == ''">
+		<div class="row">
+			<button class="btn btn-white" photo-uploader="onChangePhoto" before-upload="onBeforeUploadPhoto">Choose your own photo</button>
+		</div>
+		<div class="row margin-top-30">
+			or use one of ours...
+		</div>
+		<div class="name row margin-top-20">
+			<span class="avatar" ng-repeat="avatar in DEFAUT_BUNDLE_PHOTO" ng-click="onChangePhoto(avatar, false)">
+				<ui-bundle-img ng-src="avatar" width="1" height="1"></ui-bundle-img>
+			</span>
+		</div>
+	</div>
+	<div ng-show="current_photo != ''">
+		<div class="photo margin-bottom-40">
+			<ui-bundle-img ng-src="current_photo" width="1" height="1"></ui-bundle-img>
+		</div>
+		<ui-bundle-confirm class="" ok="onSave" cancel="goBack"></ui-bundle-confirm>
+	</div>
+	<div class="margin-top-30"></div>
+</center>
+</div>

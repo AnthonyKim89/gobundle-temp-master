@@ -1,0 +1,63 @@
+<div class="page-account">
+<center>
+	<div class="title">My account</div>
+	<div class="photo margin-top-20 photo-uploader" ng-click="onEditPhoto()">
+		<div class="photo-uploader-handler"></div>
+		<ui-bundle-img ng-src="currentUser.photo" width="1" height="1"></ui-bundle-img>
+	</div>
+	<div class="name row margin-top-25">
+		<div ng-show="!edit.isEditName">{{currentUser.firstname}} {{currentUser.surname}}</div>
+		<input type="text" class="field firstname" ng-show="edit.isEditName" ng-model="currentUser.firstname" placeholder="First name" />
+		<input type="text" class="field surname" ng-show="edit.isEditName" ng-model="currentUser.surname" placeholder="Surname" />
+		<div class="clear"></div>
+		<!-- <span class="edit margin-top-10" ng-click="onEdit('isEditName')" ng-show="!edit.isEditName">Edit</span> -->
+		<a ui-sref="account/name" class="edit margin-top-10">Edit</a>
+		<span class="save margin-top-10" ng-click="onSave()" ng-show="edit.isEditName">Save</span>
+	</div>
+	<div>
+		<div class="row margin-top-30">
+			<span class="pull-left">Email</span>
+		</div>
+		<div class="row margin-top-7">
+			<div class="field" ng-if="currentUser.email !== '' && currentUser.email !== null">{{currentUser.email}}</div>
+			<div class="field cr-gray-text" ng-if="currentUser.email === '' || currentUser.email === null">No email address</div>
+			<a class="save pull-right" ui-sref="account/email" ng-show="!edit.isEditPassword">Edit</a>
+		</div>
+		<div class="row margin-top-30" ng-if="currentUser.facebookId == null || currentUser.facebookId == ''">
+			<span class="pull-left">Password</span>
+		</div>
+		<div class="row margin-top-7" ng-if="currentUser.facebookId == null || currentUser.facebookId == ''">
+			<div class="field" ng-show="!edit.isEditPassword">********</div>
+			<input type="password" class="field password" ng-show="edit.isEditPassword" ng-model="currentUser.password" placeholder="Password" />
+			<a class="save pull-right" ui-sref="account/password" ng-show="!edit.isEditPassword">Edit</a>
+			<span class="save pull-right" ng-click="onSave()" ng-show="edit.isEditPassword">Save</span>
+		</div>
+	</div>
+	<div class="row margin-top-30">
+		<span class="pull-left">Cards</span>
+	</div>
+	<div class="row margin-top-10" ng-repeat="card in cards">
+		<div class="field">xxxx {{card.last4}}&nbsp;&nbsp;&nbsp;{{card.expiryDate | date:'MM/yy'}}</div>
+		<span class="save pull-right" ng-click="onRemoveCard(card)">Remove</span>
+	</div>
+	<div class="row margin-top-25">
+		<a ui-sref="account/addcard" class="btn btn-white">Add card</a>
+	</div>
+	<div ng-if="transactions.length > 0" class="transactions">
+		<div class="row transaction margin-top-30">
+			<span class="pull-left">Transactions</span>
+		</div>
+		<div class="row margin-top-5 padding-bottom-5 transaction" ng-repeat="transaction in transactions">
+			<div class="date">{{ transaction.transactionDate | date:"dd/MM/yy"}}</div>
+			<div class="bundle">{{ transaction.Contribution.Bundle.bundleName}}</div>
+			<div class="amount">
+				<span class="circled-number" ng-if="transaction.status == 2" title="Transaction failed">!</span>
+				<span class="circled-number" ng-if="transaction.status == 0" title="Transaction pending">?</span>
+				<span ng-if="transaction.status == 3">- </span>&#163;{{ transaction.amount | number:0 }}
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="margin-top-30"></div>
+</center>
+</div>

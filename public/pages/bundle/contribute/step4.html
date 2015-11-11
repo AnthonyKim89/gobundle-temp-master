@@ -1,0 +1,24 @@
+<div class="font-size-25 font-second cr-text margin-top-15">You are joining {{bundle.bundleName}}<br />contributing £{{contribution.amount}}</div>
+<div class="margin-top-30 cr-text">Using this card</div>
+<div class="margin-left-45 margin-top-15 cr-text">
+	<div class="pull-left margin-top-3 cr-text credit-card {{contribution.card.cardType}}"></div>
+	<div class="pull-left font-size-22 font-second cr-text margin-left-15">*** {{contribution.card.last4}}</div>
+	<div class="pull-left font-size-22 font-second cr-text margin-left-15">{{contribution.card.expiryDate}}</div>
+	<div class="clear"></div>
+</div>
+<div class="margin-top-30" ng-if="bundle.type != 0">
+	<ui-bundle-segment ng-options="CONTRIBUTION_TYPE" ng-model="contribution.type"></ui-bundle-segment>
+	<div class="margin-top-15 cr-text">
+		We can take your money now so there's no danger you'll spend it on something else!
+	</div>
+	<div class="margin-top-8 cr-text">
+		Or you can wait for the bundle to suceed  and we'll take your money then...
+	</div>
+</div>
+<div class="margin-top-30">
+	<div class="margin-bottom-10" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<button class="btn margin-top-15 btn-white" ng-click="onStepNext()">Confirm payment</button>
+	<button class="btn margin-top-15 btn-white-reverse" ng-click="onStepPrev()">Cancel</button>
+</div>

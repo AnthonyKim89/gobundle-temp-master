@@ -1,0 +1,9 @@
+<div class="title margin-top-15" ng-if="bundle.bundleType == 0">My target is</div>
+<div class="title margin-top-15" ng-if="bundle.bundleType == 1">Each person pays</div>
+<div class="title margin-top-15" ng-if="bundle.bundleType == 2">Total to split</div>
+<input type="text" class="fade-text margin-top-5" mask="£9999" restrict="reject" ng-model="bundle.target" ng-return="onNextStep()" />
+<ui-bundle-segment ng-options="BUNDLE_TARGET_TYPE" ng-model="bundle.targetType" class="bundle-type margin-top-40" ng-if="bundle.bundleType == 0"></ui-bundle-segment>
+<div class="bf-form-error-container margin-top-25">
+	After fees you will receive £{{getPriceExcludeFee()}}
+	<a ui-sref="bundle/fee" class="icon">?</a>
+</div>

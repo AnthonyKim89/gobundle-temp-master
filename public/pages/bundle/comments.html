@@ -1,0 +1,21 @@
+<div class="page-bundle-view">
+<center>
+  <div class="title margin-top-15">Comments</div>
+  <div class="margin-top-10">
+  	<div ng-repeat="message in bundle.Messages" class="margin-top-15 comment-item">
+  		<div class="pull-left margin-right-20 comment-photo">
+        <ui-bundle-img ng-src="message.User.photo" width="1" height="1"></ui-bundle-img>
+  		</div>
+  		<div class="message-box">
+  			<div class="name">{{message.User.firstname}} {{message.User.surname}} said:</div>
+  			<div class="message margin-top-5 font-second" ng-bind-html="message.message | nl2br"></div>
+  			<div class="clear"></div>
+  		</div>
+  	</div>
+    <div ng-show="bundle.Messages.length == 0" class="font-second font-size-24 cr-text">There are currently no comments, kick start the conversation and post the first comment...</div>
+  </div>
+  <div class="clear"></div>
+	<a ui-sref="bundle/comments/add({slug:bundle.slug})" class="btn btn-white margin-top-30" ng-if="bundle.status == BUNDLE_STATUS.LIVE">Add comment</a>
+  <div class="margin-top-30"></div>
+</center>
+</div>

@@ -1,0 +1,6 @@
+<ul class="ui-bundle-options">
+	<li ng-repeat="(option, title) in options" ng-class="{selected:option==model}" ng-click="setOption(option)" ng-style="style">
+		<div class="disc" ng-style="disc_style"></div>
+		{{title}}
+	</li>
+</ul>

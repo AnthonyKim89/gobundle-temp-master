@@ -1,0 +1,78 @@
+<div class="page-bundle-view">
+<center>
+	<div class="bundle-error-container" ng-show="bundleProblem != null">
+		<button ng-click="onHideError()" class="btn-error-close pull-right ng-scope"></button>
+		<div class="logo"></div>
+		<div class="icon-warning2 margin-top-20"></div>
+		<div class="error-title margin-top-10">
+			<span ng-if="bundleProblem.type == 'FAILED_PAYMENT'">Something's gone wrong</span>
+			<span ng-if="bundleProblem.type == 'EXPIRED_BUNDLE' && bundle.UserId == currentUser.id">So close but yet so far!</span>
+			<span ng-if="(bundleProblem.type == 'FAILED_BUNDLE' || bundleProblem.type == 'EXPIRED_BUNDLE') && bundle.UserId != currentUser.id">This bundle didn't make it</span>
+		</div>
+		<div class="error-contents margin-top-10 margin-bottom-30">
+			<div ng-if="bundleProblem.type == 'FAILED_PAYMENT'">
+				The following payment has failed:<br />
+				<div ng-repeat="contributor in bundleProblem.data">
+					{{contributor.User.firstname}} {{contributor.User.surname}}
+				</div>
+				Please ask them to make another payment,<br />or invite others to take their place(s).
+			</div>
+			<div ng-if="bundleProblem.type == 'EXPIRED_BUNDLE' && bundle.UserId == currentUser.id">
+				Your bundle has failed to reach its target.<br />
+				would you like to extend it, or share it<br /> with more friends?<br />
+				<a ui-sref="bundle/extend({slug:bundle.slug})" class="btn btn-white gray margin-top-10">Extend bundle</a><br />
+				<a ui-sref="bundle/share({slug:bundle.slug})" class="btn btn-gray-reverse margin-top-10">Share it</a>
+			</div>
+			<div ng-if="bundleProblem.type == 'FAILED_BUNDLE' && bundle.UserId == currentUser.id">
+				Your bundle has failed to reach its target.<br />
+				all funds collected are refunded.<br />
+				<a ui-sref="bundle/wizard" class="btn btn-white gray margin-top-10">Start new Bundle</a>
+			</div>
+			<div ng-if="(bundleProblem.type == 'FAILED_BUNDLE' || bundleProblem.type == 'EXPIRED_BUNDLE') && bundle.UserId != currentUser.id">
+				Unfortunately this bundle didn't make it.</br>
+				we've told the owner, why don't you get in <br />
+				touch with them to see what you could<br />
+				do to help try and make it happen?
+			</div>
+		</div>
+	</div>
+	<div class="photo margin-top-15" ng-show="bundle.UserId == currentUser.id">
+		<ui-bundle-preview class="margin-top-15" bundle="bundle" size="large" callback="onEditPhoto" animation="false" show-problem="false"></ui-bundle-preview>
+		<div class="photo-uploader photo-uploader-container" ng-click="onEditPhoto()">
+			<div class="photo-uploader-handler"></div>
+		</div>
+	</div>
+	<ui-bundle-preview class="margin-top-15" bundle="bundle" size="large" callback="onThumbnailClick" ng-show="bundle.UserId != currentUser.id" animation="true" after-render="afterRenderBundlePreview"></ui-bundle-preview>
+	<div class="bundle-progress margin-top-10 font-second" ng-bind-html="getProgressDescription() | nl2br"></div>
+	<div class="margin-top-10">
+		<div class="owner margin-right-30 pull-left">
+        	<ui-bundle-img ng-src="bundle.User.photo" width="1" height="1"></ui-bundle-img>
+		</div>
+		<a ui-sref="bundle/whosin({slug:bundle.slug})" class="btn btn-bundle-users margin-right-40 margin-top-14 pull-left" ng-disabled="currentUser == null || bundle.status==BUNDLE_STATUS.DRAFTED"></a>
+		<a ui-sref="bundle/view/desc({slug:bundle.slug})" class="btn btn-bundle-view-desc margin-right-40 margin-top-6 pull-left" ng-if="bundle.UserId != currentUser.id"></a>
+		<a ng-click="onEditDesc()" class="btn btn-bundle-add-desc margin-right-40 margin-top-6 pull-left" ng-show="bundle.UserId == currentUser.id && bundle.status == 0"></a>
+		<a ng-click="onEditDesc()" class="btn btn-bundle-add-desc2 margin-right-40 margin-top-6 pull-left" ng-show="bundle.UserId == currentUser.id && bundle.status != 0"></a>
+		<a ui-sref="bundle/comments({slug:bundle.slug})" class="btn btn-bundle-message margin-right-40 margin-top-14 pull-left" ng-disabled="currentUser == null || bundle.status==BUNDLE_STATUS.DRAFTED"></a>
+		<a ui-sref="bundle/share({slug:bundle.slug})" class="btn btn-bundle-share margin-top-15 pull-left" ng-disabled="currentUser == null || bundle.status==BUNDLE_STATUS.DRAFTED"></a>
+		<div class="clear"></div>
+	</div>
+	<a ng-click="onMakeLive()" class="btn btn-white margin-top-15" ng-if="bundle.status == BUNDLE_STATUS.DRAFTED && bundle.UserId == currentUser.id">Make bundle live</a>
+	<a ui-sref="bundle/invite({slug:bundle.slug})" class="btn btn-white margin-top-15" ng-if="bundle.status == BUNDLE_STATUS.LIVE && bundle.UserId == currentUser.id">Invite friends</a>
+	<a ui-sref="bundle/contribute({slug:bundle.slug})" class="btn btn-white margin-top-15" ng-if="currentUser != null && bundle.status == BUNDLE_STATUS.LIVE && bundle.UserId != currentUser.id && hasContributed === false">Contribute</a>
+	<button ng-click="onLoginRedirect()" class="btn btn-white margin-top-15" ng-if="currentUser === null">Contribute</button>
+	<div class="margin-top-30"></div>
+</center>
+</div>
+<div ng-if="showBundleOverlay && preview" class="bundle-overlay">
+	<div class="guide-photo margin-top-96">
+		<div class="margin-left-90">Change your bundle's photo</div>
+		<div class="icon-arrow1 margin-top-7 margin-left-50"></div>
+		<div class="icon-photo margin-top-7"></div>
+	</div>
+	<div class="guide-desc">
+		<div class="">Edit your bundle's description</div>
+		<div class="icon-arrow2 margin-top-7"></div>
+		<div class="icon-desc margin-top-7"></div>
+	</div>
+	<div ng-click="onHideOverlay()" class="btn btn-gray-reverse btn-got-it margin-top-28">Got it, thanks!</div>
+</div>

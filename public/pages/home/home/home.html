@@ -1,0 +1,30 @@
+<div class="page-home">
+<center>
+	<a ui-sref="bundle/wizard" class="btn btn-white">Create new bundle</a>
+	<div class="title margin-top-15">My bundles</div>
+	<div class="description  margin-top-15" ng-if="bundles.bundles.length == 0">
+		You have no active bundles. Why not bundle a day out with friends, or a gift for someone special?
+	</div>
+	<div class="bundles" ng-show="bundles.bundles.length > 0">
+		<div ng-repeat="bundle in bundles.bundles">
+			<ui-bundle-preview class="margin-top-30" bundle="bundle" size="small" callback="onBundleClick" animation="false" show-problem="true" is-error="true"></ui-bundle-preview>
+			<div ng-show="showDeleteButton == true" class="cr-text margin-top-10">
+				Delete this bundle?
+				<ui-bundle-confirm class="margin-top-10" ok="onDelete" cancel="onShowDeleteButton" margin="20" ng-model="bundle"></ui-bundle-confirm>
+			</div>
+		</div>
+	</div>
+	<a ui-sref="bundle/wizard" class="btn-create-bundle  margin-top-15" ng-if="bundles.bundles.length == 0">+</a>
+	<div class="title  margin-top-30">Bundles I've joined</div>
+	<div class="description  margin-top-15 margin-bottom-15" ng-if="bundles.contributions.length == 0">
+		You haven't joined any active bundles
+	</div>
+	<div class="bundles" ng-show="bundles.contributions.length > 0">
+		<ui-bundle-preview class="margin-top-30" ng-repeat="contribution in bundles.contributions" bundle="contribution.Bundle" size="small" callback="onBundleClick" animation="false" show-problem="true" is-error="false"></ui-bundle-preview>
+	</div>
+	<div class="trash-board margin-bottom-30 margin-top-20" ng-click="onShowDeleteButton()" ng-show="bundles.bundles.length > 0">
+		<span class="icon-trash"></span>
+		Need to delete a bundle?
+	</div>
+</center>
+</div>

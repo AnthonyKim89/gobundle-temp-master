@@ -1,0 +1,8 @@
+<div class="title margin-top-15 margin-bottom-15 font-second">I want to extend my bundle <br /><span class="font-main">{{BUNDLE_EXTEND_DAYS[extendDays]}}</span> days more</div>
+<!-- <ui-bundle-options ng-options="BUNDLE_EXTEND_DAYS" ng-model="extendDays" ng-settings="{width:15,height:15,font:'34px'}"></ui-bundle-options> -->
+
+<ui-bundle-slider options="{}" min="0" max="2" ng-model="extendDays"></ui-bundle-slider>
+<div class="margin-top-30">
+	<button class="btn btn-next" ng-click="onExtend()"></button>
+</div>
+<div class="margin-top-30"></div>

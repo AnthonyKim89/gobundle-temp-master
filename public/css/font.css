@@ -1,0 +1,19 @@
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=592ebce9-77d4-48c5-bde0-cc4e24e614cd");
+@font-face {
+  font-family: 'Abadi MT Condensed';
+  src: url('http://app.gobundle.it/fonts/abadi_mt_condensed_extra_bold__2_.eot');
+  src: url('http://app.gobundle.it/fonts/abadi_mt_condensed_extra_bold__2_.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('http://app.gobundle.it/fonts/abadi-mt-condensed-extra-bold.ttf') format('truetype');
+  
+  /* IE9 Compat Modes */
+  /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: "Effra W01 Light";
+  src: url("http://app.gobundle.it/fonts/b7efdc09-493c-4ece-9318-858f00453c42.eot?#iefix");
+  src: url("http://app.gobundle.it/fonts/b7efdc09-493c-4ece-9318-858f00453c42.eot?#iefix") format("eot"), url("http://app.gobundle.it/fonts/db491eaf-1678-406b-b122-78192f091367.woff2") format("woff2"), url("http://app.gobundle.it/fonts/751064cf-4abc-41a8-824e-4eaed9b85d23.woff") format("woff"), url("http://app.gobundle.it/fonts/5f22f65c-93cb-4f49-98f1-9cdcddbe0f49.ttf") format("truetype"), url("http://app.gobundle.it/fonts/edad0b27-2a7f-4689-a93e-893192afa06d.svg#edad0b27-2a7f-4689-a93e-893192afa06d") format("svg");
+}
+@font-face {
+  font-family: "Effra W01 Regular";
+  src: url("http://app.gobundle.it/fonts/22d5253a-df89-458b-b414-0191063f0b7f.eot?#iefix");
+  src: url("http://app.gobundle.it/fonts/22d5253a-df89-458b-b414-0191063f0b7f.eot?#iefix") format("eot"), url("http://app.gobundle.it/fonts/36d7c7c7-37f6-4684-9be8-7a1dd418e06c.woff2") format("woff2"), url("http://app.gobundle.it/fonts/07f98c09-a3b5-4ab3-a35e-9d9474d19279.woff") format("woff"), url("http://app.gobundle.it/fonts/c95fc487-48ab-48c1-b4da-f9478f900fdb.ttf") format("truetype"), url("http://app.gobundle.it/fonts/7edd076c-820b-4d62-8cda-94cbed70c375.svg#7edd076c-820b-4d62-8cda-94cbed70c375") format("svg");
+}

@@ -1,0 +1,69 @@
+angular.module('das')
+  .config(['$stateProvider', function($stateProvider) {
+    $stateProvider
+      .state('account/email', {
+          url: "/account/email",
+          templateUrl: "pages/user/account.edit_email.html",
+          controller: "accountEditEmailController as accountEditemailCtrl",
+          resolve: {
+          	currentUser: ['$stateParams', '$q', 'Users', function($stateParams, $q, Users) {
+            	var deferred = $q.defer();
+
+          		Users.get({userId: 'me'}).$promise.then(function(user) {
+                deferred.resolve(user);
+          		}, function(err) {
+          			deferred.resolve(null);
+          		});
+
+          		return deferred.promise;
+          	}]
+          }
+      });
+
+  }]);
+
+angular.module('das.controllers')
+  .controller('accountEditEmailController', ['$rootScope', '$scope', '$state', '$routeParams', '$location', 'currentUser',
+  	function ($rootScope, $scope, $state, $routeParams, $location, currentUser) {
+
+  		
+      if(currentUser === null) {
+        $state.go('landing');
+        return;
+      }
+
+      if(currentUser.email === null || typeof currentUser.email === "undefined") {
+        currentUser.email = '';
+      }
+      $scope.error = '';
+      $rootScope.siteParams.clearHookers();
+      $rootScope.siteParams.buttonBack.show = true;
+      $rootScope.siteParams.buttonBack.url = 'account';
+      $rootScope.siteParams.buttonMenu.show = false;
+      $rootScope.siteParams.isMenu = true;
+      $rootScope.siteParams.buttonCloseMenu.show = true;
+
+
+      var init = function() {
+        $scope.currentUser = currentUser;
+      };
+      $scope.onSave = function (apply) {
+        $scope.currentUser.$update()
+          .then(function() {
+            $state.go('account');
+          }, function(err) {
+            $scope.error = err.data.errors[Object.keys(err.data.errors)[0]][0];
+          });
+      };
+
+      $scope.canSave= function() {
+        if($scope.currentUser.email === '') return false;
+        return true;
+      };
+
+
+
+      init();
+
+
+  }]);

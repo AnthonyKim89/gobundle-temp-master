@@ -1,0 +1,12 @@
+<div class="ui-bundle-preview-container" ng-class="class">
+<center>
+	<div class="photo margin-top-15">
+		<ui-bundle-img ng-src="currentPhoto" width="1" height="1" callback="afterRender"></ui-bundle-img>
+		<div class="ui-bundle-preview-label" ng-show="!showProblem || bundleProblem === null"></div>
+		<div class="ui-bundle-preview-error" ng-show="showProblem && isError && bundleProblem !== null"></div>
+		<div class="ui-bundle-preview-warning" ng-show="showProblem && !isError && bundleProblem !== null"></div>
+	</div>
+	<svg id="circle" ng-click="callback(bundle)"><path fill="none" stroke="#ffffff" stroke-width="0" /></svg>
+	<div class="name margin-top-15 font-second" ng-click="callback(bundle)">{{bundle.bundleName}}</div>
+</center>
+</div>

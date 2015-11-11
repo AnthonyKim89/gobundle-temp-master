@@ -1,0 +1,14 @@
+<div class="font-size-32 font-second cr-text margin-top-15">I'm contributing</div>
+<input ng-initial-focus type="text" class="fade-text margin-top-5" mask="£9?9?9?9.9?9?" restrict="
+reject" ng-model="contribution.amount" ng-readonly="true" ng-return="onStepNext()" ng-if="bundle.bundleType == 1 || bundle.bundleType == 2" />
+<input ng-initial-focus type="text" class="fade-text margin-top-5" mask="£9?9?9?9?" restrict="
+reject" ng-model="contribution.amount" ng-return="onStepNext()" ng-if="bundle.bundleType == 0" />
+<div class="margin-top-20 cr-text font-second font-size-18">
+	towards {{ bundle.bundleName }}
+</div>
+<div class="margin-top-30">
+	<div class="margin-bottom-10" ng-if="error != ''">
+		<bf-form-error message="error"></bf-form-error>
+	</div>
+	<button class="btn btn-next" ng-click="onStepNext()"></button>
+</div>

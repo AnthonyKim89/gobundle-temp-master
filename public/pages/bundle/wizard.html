@@ -1,0 +1,13 @@
+<div class="page-bundle-wizard">
+<center>
+	<ui-bundle-progress-bar ng-percent="percentCompleted"></ui-bundle-progress-bar>
+	<div ng-include="'pages/bundle/wizard/step' + step + '.html'"></div>
+	<div class="margin-top-30">
+		<div class="margin-bottom-10" ng-if="error != ''">
+			<bf-form-error message="error"></bf-form-error>
+		</div>
+		<button class="btn btn-next" ng-click="onStepNext()"></button>
+	</div>
+	<div class="margin-top-30"></div>
+</center>
+</div>

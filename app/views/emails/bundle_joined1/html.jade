@@ -1,0 +1,35 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(content='width=device-width, initial-scale=1', name='viewport')
+		meta(content='', name='description')
+		meta(content='', name='author')
+		style.
+			@import url(#{config.hostname}/css/font.css);
+
+	body
+		.page-container
+			.page-header
+				center
+					a(href="#{config.hostname}", class="logo")
+						img(src="#{config.hostname}/img/logo.png")
+			
+			center
+				.page-content
+					.icon-bundle.margin-top-30
+						img(src="#{config.hostname}/img/email/joined.png")
+					.title.margin-top-20.
+						You've joined #{Param.Bundle.bundleName} bundle!
+					.description.margin-top-20.
+						You've contributed £{Param.Contribution.Transaction.amount} towards #{Param.Bundle.bundleName} bundle. We haven charged you and money will be balanced from your bank account.
+					.margin-top-30.margin-bottom-20
+						a.btn.btn-white-reverse.margin-right-10(href="#{config.hostname}/#!/bundle/view/#{param.Bundle.slug}", target="_blank").
+							VIEW BUNDLE
+						a.btn.btn-white-reverse(href="#{config.hostname}/#!/bundle/#{param.Bundle.slug}/share", target="_blank").
+							SHARE BUNDLE
+			
+			.page-footer
+				center.
+					&copy; Bundle 2015
